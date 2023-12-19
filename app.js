@@ -6,7 +6,7 @@ const { Document, Packer, Paragraph, TextRun } = require('docx');
 const nodemailer = require('nodemailer');
 
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 5000;
 
 let transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -116,6 +116,6 @@ async function sendEmail(mailOptions) {
   }
 }
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is running at http://localhost:${PORT}`);
 });
